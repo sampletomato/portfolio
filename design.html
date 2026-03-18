@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YVBE — Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="sidenav">
+    <a href="index.html" class="sidenav-logo">YN</a>
+    <ul class="sidenav-links">
+      <li><a href="index.html">About</a></li>
+      <li><a href="video.html">Video</a></li>
+      <li><a href="design.html" class="active">Design</a></li>
+    </ul>
+    <div class="sidenav-actions">
+      <a href="mailto:hello@yourname.com" class="sidenav-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+      </a>
+      <a href="#" class="sidenav-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <header class="topnav">
+    <a href="index.html" class="topnav-logo">YN</a>
+    <button class="burger" id="burger"><span></span><span></span></button>
+    <div class="topnav-drawer" id="drawer">
+      <a href="index.html">About</a>
+      <a href="video.html">Video</a>
+      <a href="design.html" class="active">Design</a>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <div class="page-split-header">
+    <div class="psh-left">
+      <p class="hl-pre">My</p>
+      <h1 class="hl-word">GRAPHIC</h1>
+      <p class="hl-pre" style="color:var(--coral)">DESIGN</p>
+    </div>
+    <div class="psh-right">
+      <p class="psh-sub">Brand identities, editorial layouts, posters, and digital campaigns. Click any project to zoom.</p>
+      <div class="filter-bar">
+        <button class="chip chip-btn active" data-filter="all">All</button>
+        <button class="chip chip-btn" data-filter="branding">Branding</button>
+        <button class="chip chip-btn" data-filter="print">Print</button>
+        <button class="chip chip-btn" data-filter="digital">Digital</button>
+        <button class="chip chip-btn" data-filter="type">Typography</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN MASONRY GRID -->
+  <section class="page-content">
+    <div class="design-grid" id="designGrid">
+
+      <article class="dc" data-cat="branding" onclick="openLB(this)">
+        <div class="dc-img">
+          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=700&q=80" alt="Aura Brand Identity" loading="lazy" />
+          <div class="dc-overlay"><span>↗</span></div>
+        </div>
+        <div class="dc-info">
+          <span class="chip">Branding</span>
+          <h3>Aura — Brand Identity</h3>
+          <p>Complete visual identity for a wellness startup: logo, colour system, typography.</p>
+        </div>
+      </article>
+
+      <article class="dc dc-tall" data-cat="print" onclick="openLB(this)">
+        <div class="dc-img">
+          <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=700&q=80" alt="Jazz Festival Poster" loading="lazy" />
+          <div class="dc-overlay"><span>↗</span></div>
+        </div>
+        <div class="dc-info">
+          <span class="chip">Print</span>
+          <h3>Jazz Festival — Poster Series</h3>
+          <p>3-part poster series for an independent music festival. Risograph-inspired aesthetic.</p>
+        </div>
+      </article>
+
+      <article class="dc" data-cat="digital" onclick="openLB(this)">
+        <div class="dc-img">
+          <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=700&q=80" alt="Social Campaign" loading="lazy" />
+          <div class="dc-overlay"><span>↗</span></div>
+        </div>
+        <div class="dc-info">
+          <span class="chip">Digital</span>
+          <h3>Social Media Campaign</h3>
+          <p>Instagram content series for a fashion retailer. Cohesive grid across 30+ posts.</p>
+        </div>
+      </article>
+
+      <article class="dc" data-cat="type" onclick="openLB(this)">
+        <div class="dc-img">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=700&q=80" alt="Type Specimen" loading="lazy" />
+          <div class="dc-overlay"><span>↗</span></div>
+        </div>
+        <div class="dc-info">
+          <span class="chip">Typography</span>
+          <h3>Typeface Specimen — Varuna</h3>
+          <p>Experimental specimen booklet exploring variable font axes and optical sizes.</p>
+        </div>
+      </article>
+
+      <article class="dc dc-tall" data-cat="branding" onclick="openLB(this)">
+        <div class="dc-img">
+          <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?w=700&q=80" alt="Tea Packaging" loading="lazy" />
+          <div class="dc-overlay"><span>↗</span></div>
+        </div>
+        <div class="dc-info">
+          <span class="chip">Branding</span>
+          <h3>Chai &amp; Co — Packaging</h3>
+          <p>Premium tea brand. Hand-illustrated botanicals, emboss-ready print files.</p>
+        </div>
+      </article>
+
+      <article class="dc" data-cat="print" onclick="openLB(this)">
+        <div class="dc-img">
+          <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=700&q=80" alt="Editorial Layout" loading="lazy" />
+          <div class="dc-overlay"><span>↗</span></div>
+        </div>
+        <div class="dc-info">
+          <span class="chip">Print</span>
+          <h3>Editorial Layout — Culture Mag</h3>
+          <p>16-page editorial spread for an independent culture magazine.</p>
+        </div>
+      </article>
+
+      <article class="dc" data-cat="digital" onclick="openLB(this)">
+        <div class="dc-img">
+          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=700&q=80" alt="App UI" loading="lazy" />
+          <div class="dc-overlay"><span>↗</span></div>
+        </div>
+        <div class="dc-info">
+          <span class="chip">Digital</span>
+          <h3>Wellness App — UI Design</h3>
+          <p>High-fidelity UI mockups. Soft gradients, accessible contrast ratios.</p>
+        </div>
+      </article>
+
+      <article class="dc" data-cat="type" onclick="openLB(this)">
+        <div class="dc-img">
+          <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?w=700&q=80" alt="Custom Lettering" loading="lazy" />
+          <div class="dc-overlay"><span>↗</span></div>
+        </div>
+        <div class="dc-info">
+          <span class="chip">Typography</span>
+          <h3>Custom Lettering — Events</h3>
+          <p>Hand-lettered wordmarks and scripts for a wedding stationery suite.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <div class="lb-backdrop" onclick="closeLB()"></div>
+    <div class="lb-inner">
+      <button class="lb-close" onclick="closeLB()">✕</button>
+      <img id="lbImg" src="" alt="" />
+      <div class="lb-info">
+        <span class="chip" id="lbTag"></span>
+        <h3 id="lbTitle"></h3>
+        <p id="lbDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="footer-logo">YN</span>
+      <span class="footer-copy">© 2026 Your Name</span>
+    </div>
+    <div class="footer-right">
+      <a href="mailto:hello@yourname.com">hello@yourname.com</a>
+      <a href="#">Instagram</a>
+      <a href="#">Behance</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

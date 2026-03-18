@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YVBE — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR NAV -->
+  <nav class="sidenav">
+    <a href="index.html" class="sidenav-logo">SN</a>
+    <ul class="sidenav-links">
+      <li><a href="index.html" class="active">About</a></li>
+      <li><a href="video.html">Video</a></li>
+      <li><a href="design.html">Design</a></li>
+    </ul>
+    <div class="sidenav-actions">
+      <a href="mailto:hello@yourname.com" class="sidenav-icon" title="Email">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+      </a>
+      <a href="#" class="sidenav-icon" title="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <header class="topnav">
+    <a href="index.html" class="topnav-logo">YN</a>
+    <button class="burger" id="burger">
+      <span></span><span></span>
+    </button>
+    <div class="topnav-drawer" id="drawer">
+      <a href="index.html" class="active">About</a>
+      <a href="video.html">Video</a>
+      <a href="design.html">Design</a>
+    </div>
+  </header>
+
+  <!-- MAIN SPLIT -->
+  <main class="split-layout">
+
+    <!-- LEFT PANEL -->
+    <div class="panel panel-left">
+      <div class="panel-inner">
+        <div class="tag-pill">
+          <span class="tag-dot"></span>
+           Portfolio
+        </div>
+
+        <div class="headline-block">
+          <p class="hl-pre">THE</p>
+          <h1 class="hl-word hl-accent">SOHAM</h1>
+          <p class="hl-pre">GOAT</p>
+          <h1 class="hl-word">NAYAK</h1>
+        </div>
+
+        <div class="divider-line"></div>
+
+        <p class="bio-text">
+          I’m a Computer Applications student at PES University who enjoys blending technology with creativity. 
+          With experience in graphic design and video editing, 
+          I focus on creating digital experiences that are both functional and visually engaging.
+
+        </p>
+
+        <div class="cta-row">
+          <a href="video.html" class="btn-pill btn-dark">View Work</a>
+          <a href="#skills-anchor" class="btn-pill btn-outline">Skills</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL coral -->
+    <div class="panel panel-right">
+
+      <div class="profile-card">
+        <img src="https://i.pinimg.com/736x/5e/35/d6/5e35d6c1ab425ebafe61c2e3a3618ead.jpg" alt="Profile" class="profile-img" />
+        <div>
+          <p class="profile-name">SOHAM NAYAK</p>
+          <p class="profile-role">Visual Creator</p>
+        </div>
+        <div class="badge-count">Graphic Designer</div>
+      </div>
+
+
+      <div class="hero-photo-wrap">
+        <img
+          src="https://i.pinimg.com/736x/95/85/50/95855099fa64b772bbf1d5ba064aa941.jpg"
+          alt="Model wearing bold streetwear"
+          class="hero-photo"
+        />
+      </div>
+
+      <div class="right-bottom">
+        <div class="new-arrivals">
+          <h2 class="arrivals-heading">ULTRA<br/><em>HUMAN</em></h2>
+          <a href="video.html" class="btn-round">MY WORKS →</a> 
+    </div>
+  </main>
+
+  <!-- SKILLS -->
+  <section class="skills-section" id="skills-anchor">
+    <p class="section-eyebrow">What I Do</p>
+    <h2 class="section-heading">Skills &amp; Tools</h2>
+    <div class="skills-grid">
+      <div class="skill-tile skill-coral">
+        <span class="skill-num">01</span>
+        <h3>Video Editing</h3>
+        <p>Premiere Pro · After Effects</p>
+      </div>
+      <div class="skill-tile">
+        <span class="skill-num">02</span>
+        <h3>Graphic Design</h3>
+        <p>Photoshop · Illustrator · Figma</p>
+      </div>
+      <div class="skill-tile">
+        <span class="skill-num">03</span>
+        <h3>Photography</h3>
+        <p>Portrait · Street · Product</p>
+      </div>
+      <div class="skill-tile skill-dark">
+        <span class="skill-num">04</span>
+        <h3>Motion Graphics</h3>
+        <p>Kinetic type · Brand animations</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="footer-logo">SN</span>
+      <span class="footer-copy">© 2026 Soham Nayak</span>
+    </div>
+    <div class="footer-right">
+      <a href="mailto:sohamnayaksn11@gmail.com">sohamnayaksn11@gmail.com</a>
+      <a href="https://www.instagram.com/sohamzeroo/">Instagram</a>
+      <a href="https://www.behance.net/sohamnayak">Behance</a>
+      <a href="https://www.linkedin.com/in/sohamnayak11/">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
