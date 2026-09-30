@@ -3,148 +3,879 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Soham — Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <title>SOHAM NAYAK — Software Developer, Multimedia Specialist & AI Creative</title>
+
+  <!-- Meta tags for SEO & OpenGraph -->
+  <meta name="description" content="Portfolio of Soham Nayak — Software & Web Developer, Multimedia Specialist, AI Prompt Engineer, Graphic Designer & Video Editor." />
+  <meta name="theme-color" content="#E60023" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@400;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Lenis Momentum Scroll Library -->
+  <script src="lenis.min.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="is-loading">
 
-  <!-- SIDEBAR NAV -->
-  <nav class="sidenav">
-    <a href="index.html" class="sidenav-logo">SN</a>
-    <ul class="sidenav-links">
-      <li><a href="index.html" class="active">About</a></li>
-      <li><a href="video.html">Video</a></li>
-      <li><a href="design.html">Design</a></li>
-    </ul>
-    <div class="sidenav-actions">
-      <a href="mailto:hello@yourname.com" class="sidenav-icon" title="Email">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
-      </a>
-      <a href="#" class="sidenav-icon" title="Instagram">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
-      </a>
+  <!-- FUTURISTIC PRELOADER SCREEN -->
+  <div class="preloader-overlay" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-brand">
+        <span class="preloader-title">SOHAM NAYAK</span>
+        <span class="preloader-sub">PORTFOLIO 2026 // SPEC-ENGINE</span>
+      </div>
+      
+      <div class="preloader-counter-box">
+        <span class="preloader-percent" id="preloaderPercent">00</span>
+        <span class="percent-symbol">%</span>
+      </div>
+
+      <div class="preloader-bar-bg">
+        <div class="preloader-bar-fill" id="preloaderBar"></div>
+      </div>
+
+      <div class="preloader-log" id="preloaderLog">INITIALIZING SYSTEM ENGINES...</div>
     </div>
-  </nav>
+  </div>
 
-  <!-- MOBILE NAV -->
-  <header class="topnav">
-    <a href="index.html" class="topnav-logo">YN</a>
-    <button class="burger" id="burger">
-      <span></span><span></span>
-    </button>
-    <div class="topnav-drawer" id="drawer">
-      <a href="index.html" class="active">About</a>
-      <a href="video.html">Video</a>
-      <a href="design.html">Design</a>
+  <!-- CUSTOM GLOWING & TRAILING PHYSICS CURSOR -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-follower" id="cursorFollower" aria-hidden="true">
+    <span class="cursor-badge" id="cursorBadge"></span>
+  </div>
+
+  <!-- DASHED TECHNICAL SPEC GRID OVERLAY -->
+  <div class="spec-grid-overlay" aria-hidden="true">
+    <div class="grid-line line-v line-v-1"></div>
+    <div class="grid-line line-v line-v-2"></div>
+    <div class="grid-line line-h line-h-1"></div>
+    <div class="grid-line line-h line-h-2"></div>
+    <div class="grid-line line-h line-h-3"></div>
+  </div>
+
+  <!-- MAIN NAVIGATION HEADER -->
+  <header class="site-header" id="siteHeader">
+    <a href="#hero" class="brand-logo-group" aria-label="Soham Nayak Home">
+      <div class="logo-badge">
+        <img src="assets/brand-logo.png" alt="Soham Nayak Logo" class="brand-logo-img" />
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">SOHAM NAYAK</span>
+        <span class="brand-sub">PORTFOLIO &copy;2026</span>
+      </div>
+    </a>
+
+    <div class="header-right">
+      <!-- Interactive Live Status Indicator with Tooltip / Popover -->
+      <div class="status-indicator-wrapper" id="statusWrapper">
+        <button class="status-indicator" id="statusBadge" aria-expanded="false" aria-label="View live status and location details">
+          <span class="status-dot"></span>
+          <span class="status-text">ULTRA HUMAN</span>
+          <span class="status-pill-live">LIVE</span>
+        </button>
+
+        <!-- Status Popover Card -->
+        <div class="status-popover" id="statusPopover" aria-hidden="true">
+          <div class="popover-header">
+            <div class="popover-title-group">
+              <i class="fa-solid fa-satellite-dish"></i>
+              <span>SYSTEM STATUS &amp; TIME</span>
+            </div>
+            <span class="popover-badge">ACTIVE</span>
+          </div>
+          <div class="popover-body">
+            <div class="status-clock-box">
+              <span class="clock-label"><i class="fa-regular fa-clock"></i> LOCAL TIME (IST)</span>
+              <span class="clock-time" id="liveClock">00:00:00 PM</span>
+            </div>
+            <div class="status-detail-row">
+              <span class="status-key">AVAILABILITY</span>
+              <span class="status-val val-available"><i class="fa-solid fa-circle"></i> OPEN FOR PROJECTS</span>
+            </div>
+            <div class="status-detail-row">
+              <span class="status-key">LOCATION</span>
+              <span class="status-val">INDIA (GMT +5:30)</span>
+            </div>
+            <div class="status-detail-row">
+              <span class="status-key">RESPONSE TIME</span>
+              <span class="status-val">&lt; 4 HOURS</span>
+            </div>
+            <div class="status-detail-row">
+              <span class="status-key">PRIMARY FOCUS</span>
+              <span class="status-val">3D AI WEB APPS &amp; MOTION</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Web Audio Sound FX Toggle Button -->
+      <button class="sfx-toggle-btn" id="sfxToggle" aria-label="Toggle Audio Sound Effects">
+        <i class="fa-solid fa-volume-high" id="sfxIcon"></i>
+        <span class="sfx-text" id="sfxText">SFX ON</span>
+      </button>
+
+      <!-- Hamburger Menu Toggle Button -->
+      <button class="nav-toggle-btn" id="navToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <i class="fa-solid fa-bars" id="navToggleIcon"></i>
+      </button>
     </div>
   </header>
 
-  <!-- MAIN SPLIT -->
-  <main class="split-layout">
+  <!-- FULLSCREEN NAVIGATION DRAWER OVERLAY -->
+  <div class="nav-drawer-backdrop" id="drawerBackdrop"></div>
+  <div class="nav-drawer" id="navDrawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
+    <div class="drawer-header">
+      <div class="drawer-brand-group">
+        <img src="assets/brand-logo.png" alt="Soham Brand Logo" class="drawer-logo" />
+        <span class="drawer-brand">SOHAM NAYAK</span>
+      </div>
+      <button class="drawer-close-btn" id="drawerClose" aria-label="Close Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
 
-    <!-- LEFT PANEL -->
-    <div class="panel panel-left">
-      <div class="panel-inner">
-        <div class="tag-pill">
-          <span class="tag-dot"></span>
-           Portfolio
+    <nav class="drawer-nav">
+      <ul>
+        <li style="--stagger: 1;"><a href="#hero" class="nav-link active"><span class="num">01</span> HERO SPEC</a></li>
+        <li style="--stagger: 2;"><a href="#about" class="nav-link"><span class="num">02</span> ABOUT &amp; EXPERTISE</a></li>
+        <li style="--stagger: 3;"><a href="#projects" class="nav-link"><span class="num">03</span> FEATURED WORKS</a></li>
+        <li style="--stagger: 4;"><a href="#skills" class="nav-link"><span class="num">04</span> ARSENAL &amp; TOOLS</a></li>
+        <li style="--stagger: 5;"><a href="#socials" class="nav-link"><span class="num">05</span> CONNECT &amp; CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <div class="drawer-footer">
+      <div class="drawer-socials">
+        <a href="https://github.com/sampletomato" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/in/sohamnayak11/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://instagram.com/sohamzeroo" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/sampletomato" target="_blank" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://youtube.com/@sohamzeroo" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+      <p>&copy; 2026 SOHAM NAYAK. ALL RIGHTS RESERVED.</p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT WRAPPER -->
+  <main class="main-wrapper">
+
+    <!-- HERO SECTION WITH PARALLAX & MOTION -->
+    <section class="hero-section" id="hero">
+      
+      <!-- Top Left Geometric Accent -->
+      <div class="geo-accent" aria-hidden="true">
+        <div class="geo-diamond"></div>
+        <div class="geo-circle"></div>
+      </div>
+
+      <!-- Giant Parallax Background Typography -->
+      <div class="giant-bg-text-wrapper" aria-hidden="true">
+        <h1 class="giant-bg-text" id="giantBgText">MULTIMEDIA</h1>
+      </div>
+
+      <!-- Central Hero 3D Character Container with Parallax Layering -->
+      <div class="hero-character-container" id="heroCharContainer">
+        <img src="assets/hero-character.png" alt="Soham Nayak 3D Render Avatar" class="hero-character-img" id="heroCharImg" />
+      </div>
+
+      <!-- Crimson Red Interactive Sticker Badge "00" -->
+      <div class="purple-sticker-badge" id="stickerBadge">
+        <svg class="rotating-text-svg" viewBox="0 0 100 100">
+          <path id="textPath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+          <text font-size="9.5" font-family="Space Mono" font-weight="700" fill="#FFFFFF" letter-spacing="2.5">
+            <textPath href="#textPath">SOHAM NAYAK • PORTFOLIO 2026 •</textPath>
+          </text>
+        </svg>
+        <span class="sticker-num">00</span>
+      </div>
+
+      <!-- Bottom Left Pill CTA Group -->
+      <div class="hero-cta-group">
+        <a href="#about" class="cta-circle-btn" aria-label="Explore specifications">
+          <i class="fa-solid fa-cube"></i>
+        </a>
+        <a href="#projects" class="cta-pill-btn" id="exploreWorksBtn">
+          <span>Explore Works</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+
+      <!-- Vertical Text Sidebar on Right Grid Line -->
+      <div class="vertical-sidebar-text" aria-hidden="true">
+        <span>SOFTWARE &amp; WEB DEV</span>
+        <span class="dot">•</span>
+        <span>MULTIMEDIA SPECIALIST</span>
+        <span class="dot">•</span>
+        <span>AI PROMPTING &amp; DESIGN</span>
+      </div>
+
+      <!-- Bottom Right Controls & Scroll Spec Indicator -->
+      <div class="hero-bottom-right-controls">
+        <div class="arrow-stack">
+          <i class="fa-solid fa-caret-up"></i>
+          <i class="fa-solid fa-caret-up"></i>
+          <i class="fa-solid fa-caret-up"></i>
         </div>
+        <div class="spec-code-tag">SPEC-00/2026</div>
+      </div>
+    </section>
 
-        <div class="headline-block">
-        
-          <h1 class="hl-word hl-accent">SOHAM</h1>
+    <!-- QUICK HIGHLIGHT BANNER / ROLLING MARQUEE -->
+    <section class="marquee-section" aria-label="Key Disciplines">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span>SOFTWARE DEVELOPMENT</span> <i class="fa-solid fa-star"></i>
+          <span>WEB DEVELOPMENT</span> <i class="fa-solid fa-star"></i>
+          <span>AI PROMPTING KNOWLEDGE</span> <i class="fa-solid fa-star"></i>
+          <span>GRAPHIC DESIGN</span> <i class="fa-solid fa-star"></i>
+          <span>VIDEO EDITING</span> <i class="fa-solid fa-star"></i>
+          <span>MULTIMEDIA SPECIALIST</span> <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <span>SOFTWARE DEVELOPMENT</span> <i class="fa-solid fa-star"></i>
+          <span>WEB DEVELOPMENT</span> <i class="fa-solid fa-star"></i>
+          <span>AI PROMPTING KNOWLEDGE</span> <i class="fa-solid fa-star"></i>
+          <span>GRAPHIC DESIGN</span> <i class="fa-solid fa-star"></i>
+          <span>VIDEO EDITING</span> <i class="fa-solid fa-star"></i>
+          <span>MULTIMEDIA SPECIALIST</span> <i class="fa-solid fa-star"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT & EXPERTISE SECTION -->
+    <section class="section-container about-section" id="about">
+      <div class="section-header">
+        <div class="section-tag">[ 02 / ABOUT ]</div>
+        <h2 class="section-title">CREATIVE TECH &amp; MULTIMEDIA ENGINE</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card main-bio-card">
+          <div>
+            <h3 class="bio-heading">HI, I'M SOHAM NAYAK</h3>
+            <p class="bio-lead">
+              I am a versatile <strong>Software &amp; Web Developer</strong>, <strong>Multimedia Specialist</strong> with deep <strong>AI Prompting Knowledge</strong>, <strong>Graphic Designer</strong>, and <strong>Video Editor</strong>.
+            </p>
+            <p class="bio-body">
+              Bridging raw code, artificial intelligence workflows, and high-impact visual design. I engineer modern web applications, craft digital visual identities, edit high-energy cinematic video content, and leverage state-of-the-art AI prompting to construct futuristic digital experiences.
+            </p>
+          </div>
           
-          <h1 class="hl-word">NAYAK</h1>
+          <div class="bio-stats">
+            <div class="stat-item">
+              <span class="stat-number">05+</span>
+              <span class="stat-label">CORE DISCIPLINES</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">CREATIVE SYNERGY</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">2026</span>
+              <span class="stat-label">AI INTEGRATION</span>
+            </div>
+          </div>
         </div>
 
-        <div class="divider-line"></div>
+        <!-- 5 Core Pillar Cards -->
+        <div class="services-cards-grid" id="servicesGrid">
+          <div class="service-card" data-tilt>
+            <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+            <h4>Software &amp; Web Dev</h4>
+            <p>Building high-performance, responsive websites and web applications using modern frameworks, clean DOM architecture, and slick interactive UIs.</p>
+            <div class="pill-tags">
+              <span>HTML5/CSS3</span>
+              <span>JavaScript ES6+</span>
+              <span>Web Apps</span>
+            </div>
+          </div>
 
-        <p class="bio-text">
-          I’m a Computer Applications student at PES University who enjoys blending technology with creativity. 
-          With experience in graphic design and video editing, 
-          I focus on creating digital experiences that are both functional and visually engaging.
+          <div class="service-card" data-tilt>
+            <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
+            <h4>AI Prompting &amp; Workflows</h4>
+            <p>Mastering prompt engineering for LLMs, Midjourney, Stable Diffusion &amp; AI tools to rapidly prototype, generate visual assets, and streamline dev workflows.</p>
+            <div class="pill-tags">
+              <span>Prompting</span>
+              <span>LLMs</span>
+              <span>Generative AI</span>
+            </div>
+          </div>
 
-        </p>
+          <div class="service-card" data-tilt>
+            <div class="service-icon"><i class="fa-solid fa-pen-nib"></i></div>
+            <h4>Graphic Design</h4>
+            <p>Creating bold brand identities, vector graphics, high-fashion editorial layouts, poster art, UI mockups, and typography-driven visual assets.</p>
+            <div class="pill-tags">
+              <span>Branding</span>
+              <span>UI/UX</span>
+              <span>Typography</span>
+            </div>
+          </div>
 
-        <div class="cta-row">
-          <a href="video.html" class="btn-pill btn-dark">View Work</a>
-          <a href="#skills-anchor" class="btn-pill btn-outline">Skills</a>
+          <div class="service-card" data-tilt>
+            <div class="service-icon"><i class="fa-solid fa-film"></i></div>
+            <h4>Video Editing &amp; FX</h4>
+            <p>Crafting cinematic video edits, motion graphics, sound design, color grading, and dynamic reel cuts tailored for modern visual media.</p>
+            <div class="pill-tags">
+              <span>Premiere Pro</span>
+              <span>After Effects</span>
+              <span>Motion FX</span>
+            </div>
+          </div>
+
+          <div class="service-card highlight-card" data-tilt>
+            <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h4>Multimedia Specialist</h4>
+            <p>Combining video, audio, 3D visual elements, and code to create immersive cross-platform interactive experiences.</p>
+            <div class="pill-tags">
+              <span>3D Media</span>
+              <span>Interactive</span>
+              <span>Cross-Discipline</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- RIGHT PANEL coral -->
-    <div class="panel panel-right">
-
-      <div class="profile-card">
-        <img src="https://i.pinimg.com/736x/5e/35/d6/5e35d6c1ab425ebafe61c2e3a3618ead.jpg" alt="Profile" class="profile-img" />
+    <!-- DYNAMIC FILTERABLE PROJECTS SECTION -->
+    <section class="section-container projects-section" id="projects">
+      <div class="section-header flex-between">
         <div>
-          <p class="profile-name">SOHAM NAYAK</p>
-          <p class="profile-role">Visual Creator</p>
+          <div class="section-tag">[ 03 / PORTFOLIO ]</div>
+          <h2 class="section-title">SELECTED WORKS &amp; SPECIMENS</h2>
         </div>
-        <div class="badge-count">Graphic Designer</div>
+        
+        <!-- Filter Category Tabs -->
+        <div class="project-filters" id="projectFilters" role="tablist" aria-label="Project Categories">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">ALL WORKS</button>
+          <button class="filter-btn" data-filter="3d" role="tab" aria-selected="false">3D MODELING &amp; DEV</button>
+          <button class="filter-btn" data-filter="ai" role="tab" aria-selected="false">AI PROMPTING &amp; DESIGN</button>
+          <button class="filter-btn" data-filter="fullstack" role="tab" aria-selected="false">FULL-STACK</button>
+          <button class="filter-btn" data-filter="motion" role="tab" aria-selected="false">MOTION &amp; VIDEO</button>
+        </div>
       </div>
 
+      <div class="projects-grid" id="projectsGrid">
+        
+        <!-- Project 1: 3D Modeling & Dev / Full-Stack -->
+        <article class="project-card" data-category="3d fullstack" data-project-id="p1" data-tilt>
+          <div class="project-img-wrapper">
+            <div class="project-placeholder-bg bg-gradient-1">
+              <div class="canvas-3d-placeholder">
+                <i class="fa-solid fa-cube project-icon-lg"></i>
+                <div class="pulse-ring"></div>
+              </div>
+              <span class="project-badge">3D &amp; FULL-STACK</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-cat">3D MODELING / WEB DEV</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-title">CYBERPUNK 3D PORTFOLIO SPEC</h3>
+            <p class="project-desc">Interactive editorial web application featuring dynamic 3D asset floating layout, spec grid overlay, real-time lighting, and custom prompt-driven visual assets.</p>
+            <div class="project-tags">
+              <span>Three.js / WebGL</span>
+              <span>HTML5 / CSS3</span>
+              <span>JavaScript ES6+</span>
+              <span>AI Prompting</span>
+            </div>
+            <div class="project-action-bar">
+              <span class="view-details-btn"><i class="fa-solid fa-arrow-right"></i> VIEW FULL SPECIMEN</span>
+            </div>
+          </div>
+        </article>
 
-      <div class="hero-photo-wrap">
-        <img
-          src="https://i.pinimg.com/736x/95/85/50/95855099fa64b772bbf1d5ba064aa941.jpg"
-          alt="Model wearing bold streetwear"
-          class="hero-photo"
-        />
+        <!-- Project 2: AI Prompting & Design / Full-Stack -->
+        <article class="project-card" data-category="ai fullstack" data-project-id="p2" data-tilt>
+          <div class="project-img-wrapper">
+            <div class="project-placeholder-bg bg-gradient-2">
+              <div class="canvas-3d-placeholder">
+                <i class="fa-solid fa-brain project-icon-lg"></i>
+                <div class="pulse-ring"></div>
+              </div>
+              <span class="project-badge">AI PROMPTING &amp; DESIGN</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-cat">AI PROMPTING / FULL-STACK</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-title">AI GEN ENGINE &amp; PROMPT MATRIX</h3>
+            <p class="project-desc">High-throughput LLM &amp; Midjourney prompt automation suite designed to rapidly synthesize visual concepts, visual assets, and code generation workflows.</p>
+            <div class="project-tags">
+              <span>Prompting Engineering</span>
+              <span>LLM APIs</span>
+              <span>Python / Node</span>
+              <span>UI/UX Design</span>
+            </div>
+            <div class="project-action-bar">
+              <span class="view-details-btn"><i class="fa-solid fa-arrow-right"></i> VIEW FULL SPECIMEN</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: Motion & Video Editing -->
+        <article class="project-card" data-category="motion" data-project-id="p3" data-tilt>
+          <div class="project-img-wrapper">
+            <div class="project-placeholder-bg bg-gradient-3">
+              <div class="canvas-3d-placeholder">
+                <i class="fa-solid fa-film project-icon-lg"></i>
+                <div class="pulse-ring"></div>
+              </div>
+              <span class="project-badge">MOTION &amp; VIDEO</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-cat">MOTION DESIGN / EDITING</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-title">NEON MOTION EDIT REEL 2026</h3>
+            <p class="project-desc">Cinematic video editing showcase blending audio-reactive visual cuts, kinetic typography, motion graphics, sound design, and precision color grading.</p>
+            <div class="project-tags">
+              <span>Adobe Premiere Pro</span>
+              <span>After Effects</span>
+              <span>Sound Design</span>
+              <span>Color Grading</span>
+            </div>
+            <div class="project-action-bar">
+              <span class="view-details-btn"><i class="fa-solid fa-arrow-right"></i> VIEW FULL SPECIMEN</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: Full-Stack / Software Dev -->
+        <article class="project-card" data-category="fullstack" data-project-id="p4" data-tilt>
+          <div class="project-img-wrapper">
+            <div class="project-placeholder-bg bg-gradient-4">
+              <div class="canvas-3d-placeholder">
+                <i class="fa-solid fa-laptop-code project-icon-lg"></i>
+                <div class="pulse-ring"></div>
+              </div>
+              <span class="project-badge">FULL-STACK DEV</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-cat">SOFTWARE &amp; WEB DEV</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-title">MULTIMEDIA CREATOR DASHBOARD</h3>
+            <p class="project-desc">Production web portal engineered for creators to manage video render queues, automated AI prompts, repository assets, and client inquiries in one interface.</p>
+            <div class="project-tags">
+              <span>Full-Stack Web</span>
+              <span>REST API</span>
+              <span>Modular CSS/JS</span>
+              <span>Dashboard UI</span>
+            </div>
+            <div class="project-action-bar">
+              <span class="view-details-btn"><i class="fa-solid fa-arrow-right"></i> VIEW FULL SPECIMEN</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5: 3D Modeling & Design -->
+        <article class="project-card" data-category="3d ai" data-project-id="p5" data-tilt>
+          <div class="project-img-wrapper">
+            <div class="project-placeholder-bg bg-gradient-1">
+              <div class="canvas-3d-placeholder">
+                <i class="fa-solid fa-shapes project-icon-lg"></i>
+                <div class="pulse-ring"></div>
+              </div>
+              <span class="project-badge">3D &amp; BRANDING</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-cat">3D MODELING / GRAPHIC DESIGN</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-title">DYNAMIC 'S' EMBLEM &amp; 3D LOGO</h3>
+            <p class="project-desc">Minimalist dynamic vector logo system and 3D procedural branding assets designed for high-impact visual identity across physical media and web UI.</p>
+            <div class="project-tags">
+              <span>Vector Art</span>
+              <span>3D Asset Modeling</span>
+              <span>Brand Identity</span>
+              <span>Illustrator</span>
+            </div>
+            <div class="project-action-bar">
+              <span class="view-details-btn"><i class="fa-solid fa-arrow-right"></i> VIEW FULL SPECIMEN</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6: Motion & AI Prompting -->
+        <article class="project-card" data-category="motion ai" data-project-id="p6" data-tilt>
+          <div class="project-img-wrapper">
+            <div class="project-placeholder-bg bg-gradient-3">
+              <div class="canvas-3d-placeholder">
+                <i class="fa-solid fa-wand-magic-sparkles project-icon-lg"></i>
+                <div class="pulse-ring"></div>
+              </div>
+              <span class="project-badge">MOTION &amp; AI</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-cat">KINETIC FX / AI PROMPTING</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 class="project-title">KINETIC TYPOGRAPHY &amp; EDITORIAL VFX</h3>
+            <p class="project-desc">Experimental motion design exploration integrating generative AI frame interpolation with brutalist kinetic typography and audio synthesizers.</p>
+            <div class="project-tags">
+              <span>Motion Graphics</span>
+              <span>Generative AI</span>
+              <span>After Effects</span>
+              <span>Audio Reactive</span>
+            </div>
+            <div class="project-action-bar">
+              <span class="view-details-btn"><i class="fa-solid fa-arrow-right"></i> VIEW FULL SPECIMEN</span>
+            </div>
+          </div>
+        </article>
+
       </div>
+    </section>
 
-      <div class="right-bottom">
-        <div class="new-arrivals">
-          <h2 class="arrivals-heading">ULTRA<br/><em>HUMAN</em></h2>
-          <a href="video.html" class="btn-round">MY WORKS →</a> 
+    <!-- IMMERSIVE PROJECT DETAIL MODAL SYSTEM -->
+    <div class="project-modal-backdrop" id="modalBackdrop" aria-hidden="true"></div>
+    <div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
+      <button class="modal-close-btn" id="modalClose" aria-label="Close Project Modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <div class="modal-content-container">
+        <!-- Modal Top Meta Header -->
+        <div class="modal-header">
+          <div class="modal-meta-bar">
+            <span class="modal-cat-badge" id="modalCategory">3D MODELING &amp; DEV</span>
+            <span class="modal-year-badge" id="modalYear">SPEC-2026</span>
+            <span class="modal-status-badge"><i class="fa-solid fa-circle"></i> COMPLETED</span>
+          </div>
+          <h2 class="modal-title" id="modalTitle">CYBERPUNK 3D PORTFOLIO SPEC</h2>
+          <p class="modal-subtitle" id="modalSubtitle">High-end editorial web application with real-time WebGL graphics, Lenis momentum scroll, and custom audio physics.</p>
+        </div>
+
+        <!-- Interactive Visual Showcase Slider / Tabs -->
+        <div class="modal-showcase-box">
+          <div class="showcase-preview-screen" id="modalPreviewScreen">
+            <div class="showcase-visual-content bg-gradient-1" id="modalVisualBg">
+              <i class="fa-solid fa-cube showcase-main-icon" id="modalMainIcon"></i>
+              <div class="showcase-badge-pill" id="modalScreenBadge">INTERACTIVE DEMO PREVIEW</div>
+            </div>
+          </div>
+
+          <!-- Showcase Control Tabs -->
+          <div class="showcase-tabs">
+            <button class="showcase-tab active" data-slide="overview"><i class="fa-solid fa-eye"></i> OVERVIEW</button>
+            <button class="showcase-tab" data-slide="features"><i class="fa-solid fa-layer-group"></i> FEATURES</button>
+            <button class="showcase-tab" data-slide="stack"><i class="fa-solid fa-code"></i> TECH SPECS</button>
+          </div>
+        </div>
+
+        <!-- Modal Body Content -->
+        <div class="modal-body-grid">
+          <div class="modal-main-details">
+            <h3>PROJECT BRIEF &amp; ARCHITECTURE</h3>
+            <p id="modalDescFull">
+              This project demonstrates an editorial brutalist design system engineered for high-performance web presentation. Combining custom momentum scroll physics, 3D mouse parallax layering, and low-latency Web Audio API micro-interactions, the application represents a fusion of modern frontend engineering and creative multimedia direction.
+            </p>
+
+            <h3>KEY TECHNICAL HIGHLIGHTS</h3>
+            <ul class="modal-highlights-list" id="modalHighlights">
+              <li><i class="fa-solid fa-check"></i> Integrated Lenis smooth scroll for 60fps momentum inertia</li>
+              <li><i class="fa-solid fa-check"></i> Custom Web Audio API synthesizer for native sound feedback</li>
+              <li><i class="fa-solid fa-check"></i> Parallax depth calculations on 3D character render &amp; typography</li>
+              <li><i class="fa-solid fa-check"></i> Zero layout shift modular CSS architecture</li>
+            </ul>
+          </div>
+
+          <div class="modal-sidebar-info">
+            <div class="info-block">
+              <span class="info-label">DISCIPLINE</span>
+              <span class="info-value" id="modalDiscipline">3D Modeling, Web Development, AI Prompting</span>
+            </div>
+            <div class="info-block">
+              <span class="info-label">DEVELOPER</span>
+              <span class="info-value">Soham Nayak</span>
+            </div>
+            <div class="info-block">
+              <span class="info-label">TIMELINE</span>
+              <span class="info-value">2026 // Production Ready</span>
+            </div>
+
+            <div class="info-block">
+              <span class="info-label">TECHNOLOGY STACK</span>
+              <div class="modal-tech-pills" id="modalTechPills">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>Lenis Scroll</span>
+                <span>Web Audio</span>
+              </div>
+            </div>
+
+            <div class="modal-action-buttons">
+              <a href="#contact" class="modal-btn primary-btn" id="modalLiveBtn">
+                <span>LIVE PREVIEW</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <a href="https://github.com/sampletomato" target="_blank" class="modal-btn secondary-btn">
+                <span>SOURCE CODE</span>
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- SKILLS & TOOLS ARSENAL SECTION -->
+    <section class="section-container skills-section" id="skills">
+      <div class="section-header">
+        <div class="section-tag">[ 04 / TECH &amp; TOOLS ]</div>
+        <h2 class="section-title">ARSENAL &amp; CAPABILITIES</h2>
+      </div>
+
+      <div class="skills-wrapper">
+        <div class="skill-category" data-tilt>
+          <h3 class="category-name"><i class="fa-solid fa-code"></i> SOFTWARE &amp; WEB DEV</h3>
+          <div class="skill-pills">
+            <div class="skill-chip">
+              <i class="fa-brands fa-html5"></i>
+              <span>HTML5 / CSS3 (Grid &amp; Flex)</span>
+              <span class="chip-level">98%</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-brands fa-js"></i>
+              <span>JavaScript (ES6+ / WebGL / Canvas)</span>
+              <span class="chip-level">95%</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-brands fa-react"></i>
+              <span>React / Web UIs / Component State</span>
+              <span class="chip-level">90%</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-brands fa-python"></i>
+              <span>Python / Automation / Scripting</span>
+              <span class="chip-level">88%</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-solid fa-cubes"></i>
+              <span>Three.js / 3D Graphics &amp; Shaders</span>
+              <span class="chip-level">85%</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-brands fa-git-alt"></i>
+              <span>Git / GitHub / CI-CD Workflow</span>
+              <span class="chip-level">92%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category" data-tilt>
+          <h3 class="category-name"><i class="fa-solid fa-brain"></i> AI PROMPTING &amp; AUTOMATION</h3>
+          <div class="skill-pills">
+            <div class="skill-chip">
+              <i class="fa-solid fa-robot"></i>
+              <span>Advanced Prompt Engineering</span>
+              <span class="chip-level">99%</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-solid fa-wand-magic"></i>
+              <span>Midjourney / Image Gen Synthesis</span>
+              <span class="chip-level">96%</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-solid fa-comment-dots"></i>
+              <span>LLM Orchestration (Claude / ChatGPT)</span>
+              <span class="chip-level">95%</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-solid fa-gears"></i>
+              <span>AI Code Generation &amp; Workflows</span>
+              <span class="chip-level">94%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category" data-tilt>
+          <h3 class="category-name"><i class="fa-solid fa-palette"></i> GRAPHIC DESIGN &amp; VIDEO</h3>
+          <div class="skill-pills">
+            <div class="skill-chip">
+              <i class="fa-solid fa-photo-film"></i>
+              <span>Adobe Premiere Pro Video Editing</span>
+              <span class="chip-level">95%</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-solid fa-bolt"></i>
+              <span>After Effects &amp; Kinetic Motion FX</span>
+              <span class="chip-level">90%</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-solid fa-image"></i>
+              <span>Photoshop &amp; Illustrator Vector Art</span>
+              <span class="chip-level">92%</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-brands fa-figma"></i>
+              <span>Figma UI/UX &amp; Prototyping</span>
+              <span class="chip-level">90%</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-solid fa-music"></i>
+              <span>Audio Editing &amp; Sound FX Design</span>
+              <span class="chip-level">88%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL MEDIA & WORKING CONTACT SECTION -->
+    <section class="section-container socials-section" id="socials">
+      <div class="socials-box">
+        <div class="socials-left">
+          <div>
+            <div class="section-tag">[ 05 / GET IN TOUCH ]</div>
+            <h2 class="socials-heading">LET'S BUILD SOMETHING EXTRAORDINARY.</h2>
+            <p class="socials-lead">
+              Whether you need a full-stack web application, high-end 3D graphics, graphic design, cinematic video editing, or AI-powered workflows, I'm ready to bring your vision to life.
+            </p>
+          </div>
+
+          <!-- SOCIAL MEDIA ICONS BAR WITH HOVER TOOLTIPS -->
+          <div class="social-icons-wrapper">
+            <a href="https://github.com/sampletomato" target="_blank" class="social-icon-btn" aria-label="GitHub Profile">
+              <i class="fa-brands fa-github"></i>
+              <span class="tooltip">GitHub</span>
+            </a>
+            <a href="https://linkedin.com/in/sohamnayak11/" target="_blank" class="social-icon-btn" aria-label="LinkedIn Profile">
+              <i class="fa-brands fa-linkedin-in"></i>
+              <span class="tooltip">LinkedIn</span>
+            </a>
+            <a href="https://instagram.com/sohamzeroo" target="_blank" class="social-icon-btn" aria-label="Instagram Profile">
+              <i class="fa-brands fa-instagram"></i>
+              <span class="tooltip">Instagram</span>
+            </a>
+            <a href="https://x.com/sampletomato" target="_blank" class="social-icon-btn" aria-label="X / Twitter Profile">
+              <i class="fa-brands fa-x-twitter"></i>
+              <span class="tooltip">Twitter / X</span>
+            </a>
+            <a href="https://youtube.com/@sohamzeroo" target="_blank" class="social-icon-btn" aria-label="YouTube Channel">
+              <i class="fa-brands fa-youtube"></i>
+              <span class="tooltip">YouTube</span>
+            </a>
+            <a href="mailto:nayaksoham0@gmail.com" class="social-icon-btn" aria-label="Send Direct Email">
+              <i class="fa-solid fa-envelope"></i>
+              <span class="tooltip">Email Me</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="socials-right">
+          <!-- Interactive Working Contact Form -->
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">YOUR NAME *</label>
+              <input type="text" id="name" name="name" required placeholder="John Doe" />
+              <span class="input-error-msg" id="nameError">Please enter your name.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">YOUR EMAIL *</label>
+              <input type="email" id="email" name="email" required placeholder="name@example.com" />
+              <span class="input-error-msg" id="emailError">Please enter a valid email address.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="service">SERVICE NEEDED *</label>
+              <select id="service" name="service">
+                <option value="web">Software &amp; Web Development</option>
+                <option value="3d">3D Modeling &amp; WebGL Experience</option>
+                <option value="ai">AI Prompting &amp; Automation</option>
+                <option value="design">Graphic Design &amp; Branding</option>
+                <option value="video">Video Editing &amp; Motion FX</option>
+                <option value="all" selected>Full Multimedia Project</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">PROJECT DETAILS &amp; SPECIFICATIONS *</label>
+              <textarea id="message" name="message" rows="4" required placeholder="Describe your vision, scope, timeline, or specifications..."></textarea>
+              <span class="input-error-msg" id="messageError">Please provide project details (min 10 characters).</span>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+              <span id="submitBtnText">SEND TRANSMISSION</span>
+              <i class="fa-solid fa-paper-plane" id="submitBtnIcon"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUCCESS MODAL FOR FORM TRANSMISSION -->
+    <div class="success-modal-backdrop" id="successModalBackdrop" aria-hidden="true"></div>
+    <div class="success-modal" id="successModal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="success-icon-box">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h3>TRANSMISSION RECEIVED!</h3>
+      <p class="success-lead">Thank you for reaching out. Your inquiry has been logged and sent to <strong>Soham Nayak</strong>.</p>
+      
+      <div class="receipt-box">
+        <div class="receipt-row">
+          <span>TRANSMISSION ID:</span>
+          <strong id="receiptId">#SPEC-2026-9842</strong>
+        </div>
+        <div class="receipt-row">
+          <span>SENDER:</span>
+          <strong id="receiptSender">John Doe</strong>
+        </div>
+        <div class="receipt-row">
+          <span>ESTIMATED RESPONSE:</span>
+          <strong>WITHIN 4 HOURS</strong>
+        </div>
+      </div>
+
+      <button class="success-close-btn" id="successCloseBtn">
+        <span>CLOSE RECEIPT</span>
+        <i class="fa-solid fa-check"></i>
+      </button>
+    </div>
+
   </main>
 
-  <!-- SKILLS -->
-  <section class="skills-section" id="skills-anchor">
-    <p class="section-eyebrow">What I Do</p>
-    <h2 class="section-heading">Skills &amp; Tools</h2>
-    <div class="skills-grid">
-      <div class="skill-tile skill-coral">
-        <span class="skill-num">01</span>
-        <h3>Video Editing</h3>
-        <p>Premiere Pro · After Effects</p>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="assets/brand-logo.png" alt="Soham Nayak Logo" class="footer-logo-img" />
+        <span class="footer-name">SOHAM NAYAK</span>
       </div>
-      <div class="skill-tile">
-        <span class="skill-num">02</span>
-        <h3>Graphic Design</h3>
-        <p>Photoshop · Illustrator · Figma</p>
+      <p class="footer-copy">&copy; 2026 SOHAM NAYAK. ALL RIGHTS RESERVED. CRAFTED WITH PRECISION.</p>
+      <div class="footer-back-top">
+        <a href="#hero" class="back-top-btn" aria-label="Back to Top">
+          <i class="fa-solid fa-arrow-up"></i>
+        </a>
       </div>
-      <div class="skill-tile">
-        <span class="skill-num">03</span>
-        <h3>Photography</h3>
-        <p>Portrait · Street · Product</p>
-      </div>
-      <div class="skill-tile skill-dark">
-        <span class="skill-num">04</span>
-        <h3>Motion Graphics</h3>
-        <p>Kinetic type · Brand animations</p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="footer-left">
-      <span class="footer-logo">SN</span>
-      <span class="footer-copy">© 2026 Soham Nayak</span>
-    </div>
-    <div class="footer-right">
-      <a href="mailto:sohamnayaksn11@gmail.com">sohamnayaksn11@gmail.com</a>
-      <a href="https://www.instagram.com/sohamzeroo/">Instagram</a>
-      <a href="https://www.behance.net/sohamnayak">Behance</a>
-      <a href="https://www.linkedin.com/in/sohamnayak11/">LinkedIn</a>
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <!-- MAIN INTERACTIVE SCRIPT -->
+  <script src="script.js"></script>
 </body>
 </html>
