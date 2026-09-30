@@ -63,7 +63,8 @@ Then open `http://localhost:8080`.
 
 ### GitHub Pages
 1. Push this repository to GitHub.
-2. Go to **Repository Settings** -> **Pages** -> Select `main` branch root folder -> **Save**.
+2. In **Repository Settings** -> **Pages**, set the build and deployment source to **GitHub Actions**.
+3. The workflow in `.github/workflows/pages.yml` deploys the site on each push to `main`.
 
 ---
 
